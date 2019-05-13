@@ -6,6 +6,8 @@ import base
 import sys
 import time
 
+semaphore = threading.Semaphore()
+
 #Cliente
 
 class ServerThread(threading.Thread):
@@ -49,6 +51,7 @@ thread = ServerThread(SERVER, serverSock, jogador)
 thread.start()
 
 while True:
+    print("Qual seu comando? (cmd para ajuda)")
     out_data = input()
 
     if out_data == 'get':
